@@ -1,0 +1,627 @@
+Utilizamos cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y publicidad de interés.
+Al continuar con la navegación entendemos que se acepta nuestra política de cookies.
+Cerrar
+
+
+Comunidad de Programadores
+Iniciar sesión
+
+Crear cuenta
+
+Documentación y Recursos
+Cursos y Manuales
+Biblioteca de Temas
+Código Fuente
+Noticias/Artículos
+PDFs de programación
+Foros y Consultas
+Foros de Consulta
+Chats de prog.
+Tablón de Notas
+Diccionario informático
+Programadores
+Programadores
+Ofertas de Trabajo
+Lista de Correo
+Programas
+Programas/Utilidades
+Nuestros Programas
+Iconos y Cursores
+Preguntas/Respuestas
+Otros
+Utilidades
+Colaboradores
+Encuestas/Estadísticas
+Contactar
+LWP » Código Fuente » JavaScript » Código de JavaScript - Calcular la edad desde una fecha dada en HTML5
+
+
+
+
+Código de JavaScript - Calcular la edad desde una fecha dada en HTML5 
+
+
+Volver
+Agregar Código Fuente
+
+<<>>
+
+Pos: 2
+Val: 2.131
+
+
+
+Calcular la edad desde una fecha dada en HTML5
+JavaScript
+(25)
+Actualizado el 30 de Noviembre del 2014 por Xavi (Publicado el 21 de Mayo del 2013)
+80.173 visualizaciones desde el 21 de Mayo del 2013. Una media de 266 por semana
+Código que calcula la edad de una persona seleccionando la fecha en un <input type="data"> de HTML5.
+Versión 1 - Devuelve la edad
+(3)
+Actualizado el 21 de Noviembre del 2014 (Publicado el 21 de Mayo del 2013)
+18.863 visualizaciones desde el 21 de Mayo del 2013. Una media de 63 por semana
+Versión 2 - Devuelve la edad con los meses
+
+Actualizado el 27 de Noviembre del 2014 (Publicado el 21 de Noviembre del 2014)
+1.135 visualizaciones desde el 21 de Noviembre del 2014. Una media de 7 por semana
+Versión 3 - Devuelve la edad con los meses y días
+(22)
+Actualizado el 30 de Noviembre del 2014 (Publicado el 27 de Noviembre del 2014)
+60.179 visualizaciones desde el 27 de Noviembre del 2014. Una media de 266 por semana
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+ 
+<script type="text/javascript">
+/**
+ * Funcion que devuelve true o false dependiendo de si la fecha es correcta.
+ * Tiene que recibir el dia, mes y año
+ */
+function isValidDate(day,month,year)
+{
+    var dteDate;
+ 
+    // En javascript, el mes empieza en la posicion 0 y termina en la 11 
+    //   siendo 0 el mes de enero
+    // Por esta razon, tenemos que restar 1 al mes
+    month=month-1;
+    // Establecemos un objeto Data con los valore recibidos
+    // Los parametros son: año, mes, dia, hora, minuto y segundos
+    // getDate(); devuelve el dia como un entero entre 1 y 31
+    // getDay(); devuelve un num del 0 al 6 indicando siel dia es lunes,
+    //   martes, miercoles ...
+    // getHours(); Devuelve la hora
+    // getMinutes(); Devuelve los minutos
+    // getMonth(); devuelve el mes como un numero de 0 a 11
+    // getTime(); Devuelve el tiempo transcurrido en milisegundos desde el 1
+    //   de enero de 1970 hasta el momento definido en el objeto date
+    // setTime(); Establece una fecha pasandole en milisegundos el valor de esta.
+    // getYear(); devuelve el año
+    // getFullYear(); devuelve el año
+    dteDate=new Date(year,month,day);
+ 
+    //Devuelva true o false...
+    return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
+}
+ 
+/**
+ * Funcion para validar una fecha
+ * Tiene que recibir:
+ *  La fecha en formato ingles yyyy-mm-dd
+ * Devuelve:
+ *  true-Fecha correcta
+ *  false-Fecha Incorrecta
+ */
+function validate_fecha(fecha)
+{
+    var patron=new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
+ 
+    if(fecha.search(patron)==0)
+    {
+        var values=fecha.split("-");
+        if(isValidDate(values[2],values[1],values[0]))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+ 
+/**
+ * Esta función calcula la edad de una persona y los meses
+ * La fecha la tiene que tener el formato yyyy-mm-dd que es
+ * metodo que por defecto lo devuelve el <input type="date">
+ */
+function calcularEdad()
+{
+    var fecha=document.getElementById("user_date").value;
+    if(validate_fecha(fecha)==true)
+    {
+        // Si la fecha es correcta, calculamos la edad
+        var values=fecha.split("-");
+        var dia = values[2];
+        var mes = values[1];
+        var ano = values[0];
+ 
+        // cogemos los valores actuales
+        var fecha_hoy = new Date();
+        var ahora_ano = fecha_hoy.getYear();
+        var ahora_mes = fecha_hoy.getMonth()+1;
+        var ahora_dia = fecha_hoy.getDate();
+ 
+        // realizamos el calculo
+        var edad = (ahora_ano + 1900) - ano;
+        if ( ahora_mes < mes )
+        {
+            edad--;
+        }
+        if ((mes == ahora_mes) && (ahora_dia < dia))
+        {
+            edad--;
+        }
+        if (edad > 1900)
+        {
+            edad -= 1900;
+        }
+ 
+        // calculamos los meses
+        var meses=0;
+        if(ahora_mes>mes)
+            meses=ahora_mes-mes;
+        if(ahora_mes<mes)
+            meses=12-(mes-ahora_mes);
+        if(ahora_mes==mes && dia>ahora_dia)
+            meses=11;
+ 
+        // calculamos los dias
+        var dias=0;
+        if(ahora_dia>dia)
+            dias=ahora_dia-dia;
+        if(ahora_dia<dia)
+        {
+            ultimoDiaMes=new Date(ahora_ano, ahora_mes, 0);
+            dias=ultimoDiaMes.getDate()-(dia-ahora_dia);
+        }
+ 
+        document.getElementById("result").innerHTML="Tienes "+edad+" años, "+meses+" meses y "+dias+" días";
+    }else{
+        document.getElementById("result").innerHTML="La fecha "+fecha+" es incorrecta";
+    }
+}
+</script>
+ 
+</head>
+<body>
+    <input type="date" name="user_date" id="user_date" />
+    <input type="button" value="Calcular edad" onclick="javascript:calcularEdad();" />
+ 
+    <!-- div donde mostraremos el resultado -->
+    <div id="result"></div>
+</body>
+</html>
+
+
+
+Comentarios sobre la versión: Versión 3 - Devuelve la edad con los meses y días (22)
+
+Christian
+30 de Diciembre del 2014
+
+Funciona a la prefeccion gracias por tu aporte, me gustaría que hicieras un vídeo tutorial de como lo fuiste haciendo paso a paso saludos y gracias
+Responder
+
+
+andreina
+11 de Febrero del 2015
+
+Muchas gracias, me ha sido de gran ayuda ... muchos exitos...
+Responder
+
+
+Alex
+10 de Mayo del 2015
+
+Gracias por tu aporte!
+Responder
+
+
+Roberto
+30 de Septiembre del 2015
+
+Un documento en HTML & JAVASCRIPT donde se presente un formulario
+Un formulario presentando:
+Nombre
+Año de Nacimiento
+Botón Agregar: agrega una fila en la tabla.
+Una tabla donde se muestran los registros agregados. Con las columnas de Nombre, Año de Nacimiento y Edad.
+Un botón eliminar al final de cada fila.
+Un Botón que resalta en ROJO la mayor edad.
+Responder
+
+
+Rafael
+07 de Marzo del 2016
+
+No ha dejado ningún comentario
+Responder
+
+
+Miguel Angel
+07 de Marzo del 2016
+
+Muy bien explicado y trabaja de maravilla
+Responder
+
+
+Ignacio
+11 de Abril del 2016
+
+existe un codigo que ya venga una fecha ingresada, sin que uno tenga que ingresarla en el form? onda que en el mismo codigo este la fecha, y solo se muestre en la pagina "tienes 18 años, 2 meses y 1 dia" ? saludos
+Responder
+
+
+Nayemi
+20 de Mayo del 2016
+
+Gracias, funciona correctamente
+Responder
+
+
+Irwin Eguiluz
+19 de Octubre del 2016
+
+Excelente aporte. ¡Gracias por compartirlo!
+Responder
+
+
+Juan Pablo
+28 de Noviembre del 2016
+
+Una duda y si quiero cambiar el orden por yyyy/mm/dd resulta que en una base de datos capturaron las fechas por año-mes-dia y no puedo mover estos datos a menos de que los pase a otra tabla pero como podria convertir por ejemplo 1992/04/24 por 24/04/1992? o en su defecto en este codigo cambiar el orden por aaaa/mm/dd?
+Responder
+
+
+tanya
+13 de Diciembre del 2016
+
+Excelente, muy bien explicado y muy limpio tu código.
+Responder
+
+
+Hector
+09 de Febrero del 2017
+
+Excelente codigo
+Responder
+
+
+jhonn
+20 de Febrero del 2017
+
+Excelente trabajo amigo. Pero tengo un problema o el código tiene una falla y es la siguiente, supongamos que la fecha de nacimiento es la siguiente 2017-01-30 al día de hoy 2017-02-19 La edad debería ser unos 19 días. pero la aplicación da 1 mes y 17 días.
+Responder
+
+
+jesus
+28 de Febrero del 2017
+
+gracias por el aporte me fue muy util
+Responder
+
+
+fabian
+13 de Abril del 2017
+
+quisiera que el resultado se me visualizara en un input automaticamente porque necesito para un form como lo hago
+Responder
+
+
+JT MATREX
+14 de Junio del 2017
+
+BUENA MI BROOOOOO FUNCIONA
+Responder
+
+
+Miguel Angel
+20 de Junio del 2017
+
+El código esta bien para personas que tengan mas de 1 mes de nacidas, pero para los bebes que tienen días no funciona correcto ya que coloca 1 mes cuando realmente aun no ha cumplido el mes de nacido
+Responder
+
+
+jose
+25 de Julio del 2017
+
+Amigo, como seria para que solo se ingrese la fecha dd/mm/aaa y en otro campo aparezca la edad sin necesidad de darle a un boton ??
+Responder
+
+
+marino
+01 de Diciembre del 2017
+
+por favor CON URGENCIA 
+necesito codigos JS para saber mi edad y signo zodiacal ingresando mi fecha de nacimiento y nombre
+Responder
+
+
+JOSE MANRIQUE
+06 de Julio del 2018
+
+Muy bueno
+Responder
+
+
+Pedro
+18 de Diciembre del 2018
+
+too complicated!
+Responder
+
+
+Alonso
+26 de Marzo del 2019
+
+Muy interesante tu programa para calcular la edad, te felicito, tengo una pregunta que creo es muy simple para ti, y es la siguiente: como se haria para ver el resultado en un input (en lugar de un div) si quiero enviarla a traves de un formulario a una base de datos?. de antemano mil gracias por la respuesta.
+Responder
+
+Comentar la versión: Versión 3 - Devuelve la edad con los meses y días
+
+Nombre
+
+
+Correo (no se visualiza en la web)
+
+
+Valoración
+
+
+
+
+
+
+Comentarios
+
+ Acepto las políticas de privacidad 
+
+http://lwp-l.com/s2380  
+Tags:
+fecha
+
+Metodo Ajax - Sin Librerias
+
+Suma de valores
+
+
+PDFs de programación que te pueden interesar
+EXTENSIONES DE FICHEROS
+
+2 paginas
+Creado hace 10a (02/11/2008)
+
+manual de smarty
+
+170 paginas
+Creado hace 14a (07/10/2004)
+
+Velneo vServer 7.18
+
+35 paginas
+Creado hace 3a (13/10/2015)
+
+
+
+Enviar a un amigo
+
+
+
+
+Otras secciones relacionadas con JavaScript
+Cursos
+Biblioteca de Temas
+Foros
+Preguntas
+Chat(1 conectado)
+General
+ Código RSS
+Los + visitados
+Los + votados
+Promedio
+Historial
+Recomendar
+
+
+
+
+Información y Recursos
+Cursos y Manuales
+Biblioteca de Temas
+Código Fuente
+Noticias/Artículos
+PDFs de programación
+Foros y Consultas
+Foros de Consulta
+Chats de programación
+Tablón de Notas
+Diccionario
+Programadores
+Programadores
+Ofertas de Trabajo
+Lista de Correo
+Programas
+Programas/Utilidades
+Nuestros Programas
+Iconos y Cursores
+Preguntas/Respuestas
+Otros
+Utilidades
+Colaboradores
+Encuestas
+Contactar
+Copyright © 2000-2019 Interactive Programmers Community - Todos los derechos reservados
+Aviso legal - Política de privacidad - Política de cookies
+Revisar política de publicidad 
+
+
+
+
+
+
+
+
+

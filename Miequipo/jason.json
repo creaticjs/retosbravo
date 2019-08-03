@@ -1,0 +1,216 @@
+{
+    "count": 10,
+    "filters": {
+        "limit": 10
+    },
+    "competition": {
+        "id": 2001,
+        "area": {
+            "id": 2077,
+            "name": "Europe"
+        },
+        "name": "UEFA Champions League",
+        "code": "CL",
+        "plan": "TIER_ONE",
+        "lastUpdated": "2019-04-18T03:00:07Z"
+    },
+    "season": {
+        "id": 175,
+        "startDate": "2018-06-26",
+        "endDate": "2019-06-01",
+        "currentMatchday": 7,
+        "winner": null
+    },
+    "scorers": [
+        {
+            "player": {
+                "id": 3218,
+                "name": "Lionel Messi",
+                "firstName": "Lionel Andrés",
+                "lastName": null,
+                "dateOfBirth": "1987-06-24",
+                "countryOfBirth": "Argentina",
+                "nationality": "Argentina",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-27T05:12:31Z"
+            },
+            "team": {
+                "id": 81,
+                "name": "FC Barcelona"
+            },
+            "numberOfGoals": 10
+        },
+        {
+            "player": {
+                "id": 3444,
+                "name": "Dušan Tadić",
+                "firstName": "Dušan",
+                "lastName": null,
+                "dateOfBirth": "1988-11-20",
+                "countryOfBirth": "Serbia",
+                "nationality": "Serbia",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-27T05:12:37Z"
+            },
+            "team": {
+                "id": 678,
+                "name": "AFC Ajax"
+            },
+            "numberOfGoals": 9
+        },
+        {
+            "player": {
+                "id": 371,
+                "name": "Robert Lewandowski",
+                "firstName": "Robert",
+                "lastName": null,
+                "dateOfBirth": "1988-08-21",
+                "countryOfBirth": "Poland",
+                "nationality": "Poland",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-27T05:12:41Z"
+            },
+            "team": {
+                "id": 5,
+                "name": "FC Bayern München"
+            },
+            "numberOfGoals": 8
+        },
+        {
+            "player": {
+                "id": 15832,
+                "name": "El Fardou Ben Nabouhane",
+                "firstName": "El Fardou Mohamed",
+                "lastName": null,
+                "dateOfBirth": "1989-06-10",
+                "countryOfBirth": "Mayotte",
+                "nationality": "Comoros",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-25T04:30:11Z"
+            },
+            "team": {
+                "id": 7283,
+                "name": "FK Crvena Zvezda"
+            },
+            "numberOfGoals": 7
+        },
+        {
+            "player": {
+                "id": 7891,
+                "name": "Sergio Agüero",
+                "firstName": "Sergio Leonel",
+                "lastName": null,
+                "dateOfBirth": "1988-06-02",
+                "countryOfBirth": "Argentina",
+                "nationality": "Argentina",
+                "position": "Attacker",
+                "shirtNumber": 10,
+                "lastUpdated": "2018-09-19T05:07:19Z"
+            },
+            "team": {
+                "id": 65,
+                "name": "Manchester City FC"
+            },
+            "numberOfGoals": 6
+        },
+        {
+            "player": {
+                "id": 15917,
+                "name": "Moussa Maréga",
+                "firstName": "Moussa",
+                "lastName": null,
+                "dateOfBirth": "1991-04-14",
+                "countryOfBirth": "France",
+                "nationality": "Mali",
+                "position": "Attacker",
+                "shirtNumber": 11,
+                "lastUpdated": "2018-09-19T05:07:24Z"
+            },
+            "team": {
+                "id": 503,
+                "name": "FC Porto"
+            },
+            "numberOfGoals": 6
+        },
+        {
+            "player": {
+                "id": 44,
+                "name": "Cristiano Ronaldo",
+                "firstName": "Cristiano Ronaldo",
+                "lastName": null,
+                "dateOfBirth": "1985-02-05",
+                "countryOfBirth": "Portugal",
+                "nationality": "Portugal",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-27T05:12:31Z"
+            },
+            "team": {
+                "id": 109,
+                "name": "Juventus FC"
+            },
+            "numberOfGoals": 6
+        },
+        {
+            "player": {
+                "id": 67781,
+                "name": "Besart Ibraimi",
+                "firstName": "Besart",
+                "lastName": null,
+                "dateOfBirth": "1986-12-20",
+                "countryOfBirth": "FYR Macedonia",
+                "nationality": "FYR Macedonia",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-25T02:52:12Z"
+            },
+            "team": {
+                "id": 7285,
+                "name": "KF Shkëndija 79"
+            },
+            "numberOfGoals": 5
+        },
+        {
+            "player": {
+                "id": 16279,
+                "name": "Guillaume Hoarau",
+                "firstName": "Guillaume",
+                "lastName": null,
+                "dateOfBirth": "1984-03-05",
+                "countryOfBirth": "Reunion",
+                "nationality": "France",
+                "position": "Attacker",
+                "shirtNumber": 99,
+                "lastUpdated": "2018-09-19T05:07:42Z"
+            },
+            "team": {
+                "id": 1871,
+                "name": "BSC Young Boys"
+            },
+            "numberOfGoals": 5
+        },
+        {
+            "player": {
+                "id": 2046,
+                "name": "Paulo Dybala",
+                "firstName": "Paulo Bruno",
+                "lastName": null,
+                "dateOfBirth": "1993-11-15",
+                "countryOfBirth": "Argentina",
+                "nationality": "Argentina",
+                "position": "Attacker",
+                "shirtNumber": null,
+                "lastUpdated": "2019-04-27T05:12:31Z"
+            },
+            "team": {
+                "id": 109,
+                "name": "Juventus FC"
+            },
+            "numberOfGoals": 5
+        }
+    ]
+}

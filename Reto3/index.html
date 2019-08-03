@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Reto Bootcamp</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index2.html">2Parte</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="index2.html">2Parte</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s1"><a href="#p1"> 1</a></li>
+        <li class="tab col s1"><a class="active" href="#p2"> 2</a></li>
+        <li class="tab col s1"><a href="#p3"> 3</a></li>
+        <li class="tab col s1"><a href="#p4">4</a></li>
+        <li class="tab col s1"><a href="#p5"> 5</a></li>
+        <li class="tab col s1"><a href="#p6"> 6</a></li>
+        <li class="tab col s1"><a href="#p7"> 7</a></li>
+        <li class="tab col s1"><a href="#p8"> 8</a></li>
+        <li class="tab col s1"><a href="#p9"> 9</a></li>
+        <li class="tab col s1"><a href="#p10"> 10</a></li>
+        <li class="tab col s1"><a href="#p11"> 11</a></li>
+        <li class="tab col s1"><a href="#p12"> 12</a></li>
+        
+      </ul>
+    </div>
+    <!--primer punto-->
+    <div id="p1" class="col s12">
+        <div class="center-align"><h3>Calcular Nuevo Salario</h3></div>   
+        <div class="row">
+        <div class="center-align col s4 offset-s4">
+            <input class="col s10 center-align" placeholder="Salario" type="text" id="valor1" value="0" onchange="aumentosalario(this.value, event)">
+            <p class="col s2" id="salario"></p>
+           
+            <br><br> <br><br>
+
+           <h6 > Nuevo salario:</h6> <h5 id="nuevosalario"></h5>
+        </div>
+      </div>
+    </div>
+    <!--segundo punto-->
+    <div id="p2" class="col s12 ">
+      <div class="col s4">
+      <br>
+      <div class="center-align"><h4>Calculo de pi</h4></div>
+      <br>
+      <p>Numero de terminos para calcular pi:</p>
+      <input type="number" id="numero determinos" onchange="calculatepi(this.value, event)">
+      
+        <div class="col s7 offset-s1">
+      <br>
+      <h4 id="pi"></h4>
+    </div>
+    </div>
+  </div>
+    <!--tercer punto-->
+
+    <div id="p3" class="col s12">
+<br><br> <br> <br>
+        <div class="input-field col s4 offset-s4">
+            
+            <input id="nnumeros" type="number" class="validate" value="" onchange="grandeypequeño(this.value)">
+            <label for="nnumeros">N:</label>
+          </div>
+<br>
+
+<h4 class="offset-s2 col s8" >maximo </h4><h4 class="offset-s2 col s8" id="maximo"> </h4>
+      
+<h4 class="offset-s2 col s8" >minimo </h4> <h4 class="offset-s2 col s8" id="minimo"></h4>
+
+    </div>
+
+    <!--cuarto punto-->
+    <div id="p4" class="col s12">
+        <div class="center-align"><h4>Dia de marzo para pascua</h4></div>
+
+    <div class="input-field col s4 offset-s4">
+
+        <input id="anno" type="number" class="validate" value=""  onchange="pascua(this.value)">
+        <label for="anno">Año:</label>
+      </div>
+      <br>
+      
+
+
+<div class="col s8 offset-s2 center-align">
+  <h4 id="diademarzo"></h4>
+</div>
+       
+ </div>
+ <!--quinto punto-->
+    <div id="p5" class="col s12">
+        <br>  <br>
+      <div class="center-align">Años biciestos</div>
+        
+      <br>
+      <div class="input-field col s4 offset-s4">
+
+          <input id="anno" type="number" class="validate" value="" onchange="anobiciesto(this.value)" >
+          <label for="anno">año:</label>
+        </div>
+        
+      <br>
+  
+      <div class="col s8 offset-s2 center-align">
+          <h4 id="biciesto"></h4>
+        </div>
+    </div>
+ <!--sexto punto-->
+    <div id="p6" class=" center-align col s4 offset-s4">
+<br><br><br>
+<div class="center-align">
+    <h4>Cambiar formato de hora</h4>
+</div>
+
+    <div class="center-align">
+
+    <div class="col s3 offset-s3 center-align"> 
+            <input id="hora" class="center-align" type="text" value="" maxlength="2" onchange="setformattime()"> 
+        </div>
+        <div class="center-align col s1">
+            <h5>:</h5>
+        </div>
+        <div class="col s3 center-align">
+            <input id="minutos" class="center-align" type="text" value="" maxlength="2" onchange="setformattime()">
+
+        </div>
+        <br><br>
+        <h4 id="horaconformato">00:00 PM</h4>
+      </div> 
+
+    </div>
+ <!--septimo punto--> 
+    <div id="p7" class="col s12">
+      <div class="center-align"><h4>Numeros perfectos</h4>
+      <br><br>
+        <div class="col s4 offset-s4 center-align"> 
+            <input min="1" id="numeroperfecto" placeholder="numeros perfectos" class="center-align" type="number" value="" onchange="numPerfects(this.value)" > 
+        </div> 
+        <br>
+        </div>
+        <br>
+        <div class="center-align" id="result">
+          <br>
+        </div>
+
+    </div>
+ <!--octavo punto-->
+    <div id="p8" class="col s12">
+        <div class="center-align"><h4>x para calculo de euler</h4> </div>
+
+        <div class="col s3 offset-s5 center-align"> 
+            <input id="eulerx" class="center-align" type="number" value=""  onchange="euler(this.value)">  <br>
+        </div>
+        <br>
+
+        <div class="center-align" id="euler">
+          <br>
+          
+          </div>
+
+
+
+    </div>
+<!--noveno punto-->
+
+    <div id="p9" class="col s12">
+
+      <div class="center-align"> 
+        <h4>fibonacci</h4>
+        <div class="input-field col s4 offset-s4">
+            <input id="radio" type="number" class="validate" value="" onchange="fibonacci(this.value)" >
+            <label for="radio">inserte numero de años para calcular la poblacion de conejos:</label>
+          </div>
+      </div>
+      <br> <br>
+      <br> <br>
+
+
+      <div id="fibonacci" class="center-align">
+
+      </div>
+
+     
+    </div>
+
+<!--decimo punto-->
+    <div id="p10" class="col s12">
+      
+      <div class="center-align"> 
+        <h4>MCD</h4>
+        <div class="input-field col s4 offset-s4">
+            <input id="num1" type="number" class="validate" value=""  >
+            <label for="num1">Numero 1:</label>
+        </div>
+        <div class="input-field col s4 offset-s4">
+            <input id="num2" type="number" class="validate" value=""  >
+            <label for="num2">Numero 2:</label>
+        </div>
+    
+        <br>
+       
+
+      </div>
+      <div class="center-align">
+        <br>
+          <button class="btn" onclick="mcd()">Calcular mcd</button>
+       </div>
+      <br> <br>
+      <br> <br>
+
+
+      <div id="mcd" class="center-align">
+
+      </div>
+
+    </div>
+
+
+<!--onceavo punto-->
+    <div id="p11" class="col s12">
+      <div class="center-align"> 
+        <h4>Numeros primos</h4>
+        <div class="input-field col s4 offset-s4">
+            <input id="numeroabcd" type="number" class="validate" maxlength="4" value="" onchange="esPrimo(this.value)" >
+            <label for="numeroabcd">Numero primo o no:</label>
+          </div>
+      </div>
+      <br> <br>
+      <br> <br>
+
+
+      <div id="primoono" class="center-align">
+
+      </div>
+
+    </div>
+  
+<!--doceavo punto-->  
+    <div id="p12" class="col s12">
+
+      <div class="center-align"> 
+        <h4>serie</h4>
+        <div class="input-field col s4 offset-s4">
+            <input id="nserie" type="number" class="validate"  value="" onchange="serie(this.value)" >
+            <label for="nserie">inserte el valor de n para la serie:</label>
+          </div>
+      </div>
+      <br> <br>
+      <br> <br>
+
+            <div id="serienn" class="center-align">
+
+      </div>
+
+      
+    </div>
+
+
+<!-- fin doceavo punto-->  
+
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

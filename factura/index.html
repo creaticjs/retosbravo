@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+        <div class="row">
+                <div class="col-12">
+                      <div align="center">
+                            <h1>Factura</h1>
+                
+                      </div>
+                   
+                
+                    </div>
+         </div>
+
+
+
+    <div class="row">
+            <div class="col-6">
+                    <h1>hello world</h1>
+            
+            
+                </div>
+        <div class=" col-6">
+                <div id="appProductos" class="container ">
+    
+                        <!-- Formulario para añadir productos -->
+                        <section class="form">
+                            <br>
+                            <form action="" class="text-center">
+                                <input v-model="nombre" @keyup.enter="crearProducto" type="text" class="form-control" placeholder="Nombre">
+                                <br>
+                                <input v-model="precio" @keyup.enter="crearProducto" type="number" name="precio" placeholder="Precio" class="form-control">
+                                <br>
+                                <!-- Botón para añadir -->
+                                <input @click="crearProducto" type="button" value="Añadir" class="btn btn-success">
+                            </form>
+                        </section>
+                        <!-- Tabla donde se muestran los datos -->
+                        <section class="data">
+                            <caption>Productos</caption>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(producto, index) in productos">
+                                        <td>{{ producto.id }}</td>
+                                        <td>
+                                            <span v-if="formActualizar && idActualizar == index">
+                                                <!-- Formulario para actualizar -->
+                                                <input v-model="nombreActualizar" type="text" class="form-control">
+                                            </span>
+                                            <span v-else>
+                                                <!-- Dato nombre -->
+                                                {{ producto.nombre }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span v-if="formActualizar && idActualizar == index">
+                                                <!-- Formulario para actualizar -->
+                                                <input v-model="precioActualizar" type="text" class="form-control">
+                                            </span>
+                                            <span v-else>
+                                                <!-- Dato precio -->
+                                                {{ producto.precio }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <!-- Botón para guardar la información actualizada -->
+                                            <span v-if="formActualizar && idActualizar == index">
+                                                <button @click="guardarActualizacion(index)" class="btn btn-success">Guardar</button>
+                                            </span>
+                                            <span v-else>
+                                                <!-- Botón para mostrar el formulario de actualizar -->
+                                                <button @click="verFormActualizar(index)" class="btn btn-warning">Actualizar</button>
+                                                <!-- Botón para borrar -->
+                                                <button @click="borrarProducto(index)" class="btn btn-danger">Borrar</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+
+
+        </div>
+    </div>
+   
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Vue({
+                el: '#appProductos',
+                data: {
+                    // Input nombre
+                    nombre: '',
+                    // Input precio
+                    precio: '',
+                    // Ver o no ver el formulario de actualizar
+                    formActualizar: false,
+                    // La posición de tu lista donde te gustaría actualizar 
+                    idActualizar: -1,
+                    // Input nombre dentro del formulario de actualizar
+                    nombreActualizar: '',
+                    // Input precio dentro del formulario de actualizar
+                    precioActualizar: '',
+                    // Lista de productos
+                    productos: [] 
+                },
+                methods: {
+                    crearProducto: function () {
+                        // Anyadimos a nuestra lista
+                        this.productos.push({
+                            id: + new Date(),
+                            nombre: this.nombre,
+                            precio: this.precio
+                        });
+                        // Vaciamos el formulario de añadir
+                        this.nombre = '';
+                        this.precio = '';
+                    },
+                    verFormActualizar: function (producto_id) {
+                        // Antes de mostrar el formulario de actualizar, rellenamos sus campos
+                        this.idActualizar = producto_id;
+                        this.nombreActualizar = this.productos[producto_id].nombre;
+                        this.precioActualizar = this.productos[producto_id].precio;
+                        // Mostramos el formulario
+                        this.formActualizar = true;
+                    },
+                    borrarProducto: function (producto_id) {
+                        // Borramos de la lista
+                        this.productos.splice(producto_id, 1);
+                    },
+                    guardarActualizacion: function (producto_id) {
+                        // Ocultamos nuestro formulario de actualizar
+                        this.formActualizar = false;
+                        // Actualizamos los datos
+                        this.productos[producto_id].nombre = this.nombreActualizar;
+                        this.productos[producto_id].precio = this.precioActualizar;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
